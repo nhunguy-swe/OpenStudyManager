@@ -1,21 +1,14 @@
-import { useState, useEffect } from 'react';
-import { Task } from '../types';
-import TaskList from '../components/TaskList';
-import TaskForm from '../components/TaskForm';
-import { Plus } from 'lucide-react';
-import toast from 'react-hot-toast';
-import { Subject } from '../types';
+import { useState, useEffect } from "react";
+import { Task } from "../types";
+import TaskList from "../components/TaskList";
+import TaskForm from "../components/TaskForm";
+import { Plus } from "lucide-react";
+import toast from "react-hot-toast";
 
 export default function Tasks() {
   const [tasks, setTasks] = useState<Task[]>(() => {
     // Load task từ localStorage khi component render lần đầu
-    const saved = localStorage.getItem('tasks');
-    return saved ? JSON.parse(saved) : [];
-  });
-
-  // Load danh sách môn học từ localStorage
-  const [subjects, setSubjects] = useState<Subject[]>(() => {
-    const saved = localStorage.getItem("subjects");
+    const saved = localStorage.getItem("tasks");
     return saved ? JSON.parse(saved) : [];
   });
   const [showForm, setShowForm] = useState(false);
@@ -27,7 +20,6 @@ export default function Tasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
-
   const handleTaskComplete = (taskId: string) => {
     setTasks(
       tasks.map((task) =>
@@ -37,7 +29,7 @@ export default function Tasks() {
   };
 
   // TẠO MỚI TASK
-  const handleCreateTask = (taskData: Omit<Task, 'id' | 'completed'>) => {
+  const handleCreateTask = (taskData: Omit<Task, "id" | "completed">) => {
     const newTask: Task = {
       ...taskData, // title, subject, deadline, ...
       id: crypto.randomUUID(), // tạo id duy nhất
@@ -45,11 +37,11 @@ export default function Tasks() {
     };
 
     setTasks([...tasks, newTask]); // thêm vào danh sách
-    toast.success('Task created successfully');
+    toast.success("Task created successfully");
   };
 
   // CHỈNH SỬA TASK
-  const handleUpdateTask = (taskData: Omit<Task, 'id' | 'completed'>) => {
+  const handleUpdateTask = (taskData: Omit<Task, "id" | "completed">) => {
     if (!editingTask) return; // nếu không có task đang sửa thì bỏ qua
 
     setTasks(
@@ -63,7 +55,7 @@ export default function Tasks() {
           : task
       )
     );
-    toast.success('Task updated successfully');
+    toast.success("Task updated successfully");
   };
 
   // MỞ FORM CHỈNH SỬA TASK

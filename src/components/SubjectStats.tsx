@@ -1,11 +1,11 @@
 import { useState } from 'react';
-import { StudySession, Subject } from '../types';
+import { StudyTimeSession, Subject } from '../types';
 import { Clock, Target, ArrowUp, ArrowDown } from 'lucide-react';
 import { startOfWeek, endOfWeek } from 'date-fns';
 
 interface SubjectStatsProps {
   subject: Subject;
-  sessions: StudySession[];
+  sessions: StudyTimeSession[];
 }
 
 export default function SubjectStats({ subject, sessions }: SubjectStatsProps) {

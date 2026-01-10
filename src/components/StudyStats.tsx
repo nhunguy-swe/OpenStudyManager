@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { StudySession, Subject } from '../types';
+import { StudyTimeSession, Subject } from '../types';
 import { BarChart2, Download } from 'lucide-react';
 import { format, startOfWeek, endOfWeek } from 'date-fns';
 
 interface StudyStatsProps {
-  sessions: StudySession[];
+  sessions: StudyTimeSession[];
   subjects: Subject[];
 }
 

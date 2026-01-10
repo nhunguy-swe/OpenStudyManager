@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Subject, StudySession } from '../types';
+import { Subject, StudyTimeSession } from '../types';
 import SubjectManager from '../components/SubjectManager';
 import { Book, Plus, Clock } from 'lucide-react';
 import { startOfWeek, endOfWeek } from 'date-fns';
@@ -11,7 +11,7 @@ export default function Subjects() {
     return saved ? JSON.parse(saved) : [];
   });
 
-  const studySessions = useState<StudySession[]>(() => {
+  const studySessions = useState<StudyTimeSession[]>(() => {
     const saved = localStorage.getItem('studyTime');
     return saved ? JSON.parse(saved) : [];
   })[0];
