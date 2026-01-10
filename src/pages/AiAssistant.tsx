@@ -182,7 +182,7 @@ export default function AiAssistant() {
     setIsLoading(true);
 
     try {
-      const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+      const model = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
       const result = await model.generateContent(sanitizedInput);
       const response = await result.response;
       const text = response.text();
@@ -874,7 +874,7 @@ export default function AiAssistant() {
             onChange={(e) => setInput(e.target.value)}
             onKeyPress={(e) => e.key === 'Enter' && !e.shiftKey && handleSend()}
             placeholder="Type your message..."
-            className="flex-1 px-4 py-2 border rounded-lg focus:ring-2 focus:ring-indigo-500"
+            className="flex-1 px-4 py-2 border rounded-lg focus:ring-indigo-500"
             disabled={isLoading}
           />
           <button

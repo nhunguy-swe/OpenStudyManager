@@ -4,59 +4,87 @@ import TaskList from '../components/TaskList';
 import TaskForm from '../components/TaskForm';
 import { Plus } from 'lucide-react';
 import toast from 'react-hot-toast';
+import { Subject } from '../types';
 
 export default function Tasks() {
   const [tasks, setTasks] = useState<Task[]>(() => {
+    // Load task từ localStorage khi component render lần đầu
     const saved = localStorage.getItem('tasks');
     return saved ? JSON.parse(saved) : [];
   });
-  
+
+  // Load danh sách môn học từ localStorage
+  const [subjects, setSubjects] = useState<Subject[]>(() => {
+    const saved = localStorage.getItem("subjects");
+    return saved ? JSON.parse(saved) : [];
+  });
   const [showForm, setShowForm] = useState(false);
   const [editingTask, setEditingTask] = useState<Task | null>(null);
 
+  // Load / Save tasks từ localStorage
   useEffect(() => {
-    localStorage.setItem('tasks', JSON.stringify(tasks));
+    // mỗi khi tasks thay đổi → lưu lại
+    localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+
   const handleTaskComplete = (taskId: string) => {
-    setTasks(tasks.map(task =>
-      task.id === taskId ? { ...task, completed: !task.completed } : task
-    ));
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task
+      )
+    );
   };
 
+  // TẠO MỚI TASK
   const handleCreateTask = (taskData: Omit<Task, 'id' | 'completed'>) => {
     const newTask: Task = {
-      ...taskData,
-      id: crypto.randomUUID(),
-      completed: false,
+      ...taskData, // title, subject, deadline, ...
+      id: crypto.randomUUID(), // tạo id duy nhất
+      completed: false, // task mới mặc định chưa hoàn thành
     };
-    setTasks([...tasks, newTask]);
+
+    setTasks([...tasks, newTask]); // thêm vào danh sách
     toast.success('Task created successfully');
   };
 
+  // CHỈNH SỬA TASK
   const handleUpdateTask = (taskData: Omit<Task, 'id' | 'completed'>) => {
-    if (!editingTask) return;
-    setTasks(tasks.map(task =>
-      task.id === editingTask.id
-        ? { ...task, ...taskData, completed: task.completed }
-        : task
-    ));
+    if (!editingTask) return; // nếu không có task đang sửa thì bỏ qua
+
+    setTasks(
+      tasks.map((task) =>
+        task.id === editingTask.id
+          ? {
+              ...task,
+              ...taskData,
+              completed: task.completed,
+            }
+          : task
+      )
+    );
     toast.success('Task updated successfully');
   };
 
+  // MỞ FORM CHỈNH SỬA TASK
   const handleEditTask = (task: Task) => {
     setEditingTask(task);
     setShowForm(true);
   };
 
+  // XÓA TASK
   const handleDeleteTask = (taskId: string) => {
-    setTasks(tasks.filter(task => task.id !== taskId));
+    setTasks(tasks.filter((task) => task.id !== taskId));
   };
 
+  // UI
   return (
     <div className="max-w-4xl mx-auto p-4">
+      {/* HEADER */}
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-2xl font-bold text-gray-900">Tasks</h1>
+
+        {/* NÚT TẠO TASK MỚI */}
         <button
           onClick={() => {
             setEditingTask(null);
@@ -69,6 +97,7 @@ export default function Tasks() {
         </button>
       </div>
 
+      {/* DANH SÁCH TASK */}
       <TaskList
         tasks={tasks}
         onTaskComplete={handleTaskComplete}
@@ -77,6 +106,7 @@ export default function Tasks() {
         onTaskCreate={handleCreateTask}
       />
 
+      {/* FORM THÊM / SỬA TASK */}
       {showForm && (
         <TaskForm
           onSubmit={editingTask ? handleUpdateTask : handleCreateTask}

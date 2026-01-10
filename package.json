@@ -13,7 +13,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@google/generative-ai": "^0.2.1",
+    "@google/generative-ai": "^0.24.1",
+    "@hello-pangea/dnd": "^18.0.1",
     "@supabase/supabase-js": "^2.39.7",
     "date-fns": "^3.3.1",
     "lucide-react": "^0.358.0",
@@ -26,13 +27,15 @@
     "react-markdown": "^9.0.1",
     "react-router-dom": "^6.22.3",
     "react-syntax-highlighter": "^15.5.0",
-    "remark-gfm": "^4.0.0"
+    "remark-gfm": "^4.0.0",
+    "uuid": "^13.0.0"
   },
   "devDependencies": {
     "@tailwindcss/typography": "^0.5.10",
     "@types/react": "^18.2.64",
     "@types/react-dom": "^18.2.21",
     "@types/react-syntax-highlighter": "^15.5.11",
+    "@types/uuid": "^10.0.0",
     "@vitejs/plugin-react": "^4.3.1",
     "autoprefixer": "^10.4.17",
     "postcss": "^8.4.35",

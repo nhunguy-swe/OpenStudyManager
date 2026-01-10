@@ -18,6 +18,8 @@ import Signup from "./pages/Signup";
 import NotFound from "./pages/NotFound";
 import LoadingSpinner from "./components/LoadingSpinner";
 import SocialWidget from "./components/SocialWidget";
+import Notes from "./pages/Notes";
+import Timetable from "./pages/Timetable";
 
 function PrivateRoute({ children }: { children: React.ReactNode }) {
   const { user, isLoading } = useAuth();
@@ -77,6 +79,22 @@ function App() {
                 element={
                   <PrivateRoute>
                     <Subjects />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/notes"
+                element={
+                  <PrivateRoute>
+                    <Notes />
+                  </PrivateRoute>
+                }
+              />
+              <Route
+                path="/timetable"
+                element={
+                  <PrivateRoute>
+                    <Timetable />
                   </PrivateRoute>
                 }
               />

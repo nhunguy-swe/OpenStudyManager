@@ -9,7 +9,7 @@ export interface Task {
   estimatedMinutes: number;
 }
 
-export interface StudySession {
+export interface StudyTimeSession {
   id: string;
   date: string;
   durationMinutes: number;
@@ -79,4 +79,14 @@ export interface Achievement {
   title: string;
   description: string;
   earnedAt: string;
+}
+
+export interface Note {
+  id: string;
+  title: string;
+  content: string;
+  subject: string;
+  color: string;
+  createdAt: string;
+  updatedAt: string;
 }
