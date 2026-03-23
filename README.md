@@ -1,21 +1,45 @@
-# 📚 StudyMate - Your AI-Powered Study Companion
+# 📚 StudyMate + (Customized Version) - by nhunguy-swe
 
-> Transform your study sessions with intelligent task management, real-time progress tracking, and AI-powered learning assistance.
+🚀 Enhanced version with Notes system, Timetable interaction, and improved UI/UX
 
-[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://studymatesite.netlify.app)
+> A modern study management system with AI assistance, task tracking, and personalized learning workflows.
+
+[![Live Demo](https://img.shields.io/badge/Live-Demo-brightgreen)](https://openstudymanager.netlify.app/)
+[![Your Repo Stars](https://img.shields.io/github/stars/nhunguy-swe/OpenStudyManager?style=social)](https://github.com/nhunguy-swe/OpenStudyManager)
 [![GitHub Stars](https://img.shields.io/github/stars/mintahandrews/studymate?style=social)](https://github.com/mintahandrews/studymate)
+[![Repo](https://img.shields.io/badge/GitHub-Repository-black?logo=github)](https://github.com/nhunguy-swe/OpenStudyManager)
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)
 
-![StudyMate Preview](StudyMatePreview.png)
+![StudyMate Preview](StudyMatePlusPreview.png)
 
 ## ✨ Features
 
-- 🤖 **AI Study Assistant** - Get instant help with your study materials
-- ⏱️ **Smart Study Timer** - Track your study sessions with Pomodoro technique
-- 📊 **Progress Analytics** - Visualize your study habits and improvements
-- 📝 **Task Management** - Organize your assignments and deadlines
-- 📚 **Subject Tracking** - Monitor progress across different subjects
-- 🎯 **Study Goals** - Set and achieve your study targets
+- 🤖 **AI Study Assistant** – Get instant help with study materials
+- ⏱️ **Smart Study Timer** – Track focus sessions with subject selection
+- 📊 **Progress Analytics** – Visualize study time and performance
+- 📝 **Task Management** – Manage tasks with subject-based filtering and completion tracking
+- 📘 **Subject Management** – CRUD subjects with custom color tagging
+- 🗒️ **Smart Notes** – Create and organize notes linked to each subject
+- 📅 **Weekly Timetable** – Plan schedule by day/session with modal editing
+- 🎨 **Modern UI** – Clean card-based interface for better usability
+- 💾 **LocalStorage** – Automatically save and persist user data
+
+## 🎯 Purpose
+
+This project was built to enhance the original StudyMate application by improving usability, adding structured note-taking, and providing better study planning tools for students.
+
+## 🛠️ My Contributions
+
+This project is based on the open-source StudyMate application. I have made the following improvements:
+
+- Redesigned UI with modern card-based layout for better UX
+- Implemented Notes system linked to Subjects
+- Built Weekly Timetable with modal editing
+- Enhanced Study Timer with subject tracking
+- Added LocalStorage persistence for user data
+- Improved Analytics data accuracy
+- Refactored code structure
+- Integrated additional APIs
 
 ## 🚀 Key Technologies
 
@@ -39,8 +63,8 @@
 1. Clone the repository
 
 ```bash
-git clone https://github.com/mintahandrews/studymate.git
-cd studymate
+git clone https://github.com/nhunguy-swe/OpenStudyManager
+cd OpenStudyManager
 ```
 
 2. Install dependencies
@@ -100,7 +124,7 @@ yarn build
 ## 📁 Project Structure
 
 ```
-studymate/
+OpenStudyManager/
 ├── public/
 │   └── sounds/          # Notification sound files
 ├── src/
@@ -158,7 +182,7 @@ Modify default timer settings in the respective components:
 
 ## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](licensee.md) file for details.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## 🤝 Contributing
 
@@ -184,9 +208,12 @@ If you find a bug, please open an issue with:
 - Sound effects from [Freesound](https://freesound.org/)
 - Icons from [Lucide](https://lucide.dev/)
 
-## 👨‍💻 Developer
+## 🙏 Original Author
 
-Developed by [codemintah](https://github.com/mintahandrews)
+This project is based on the original repository:  
+https://github.com/mintahandrews/studymate
+
+Original author: codemintah
 
 ---
 
