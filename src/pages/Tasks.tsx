@@ -20,6 +20,7 @@ export default function Tasks() {
     localStorage.setItem("tasks", JSON.stringify(tasks));
   }, [tasks]);
 
+  // ĐÁNH DẤU HOÀN THÀNH / CHƯA HOÀN THÀNH TASK
   const handleTaskComplete = (taskId: string) => {
     setTasks(
       tasks.map((task) =>

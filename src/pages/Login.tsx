@@ -12,6 +12,7 @@ export default function Login() {
   const { login, resetPassword } = useAuth();
   const navigate = useNavigate();
 
+  // Xử lý submit form đăng nhập
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!email.trim() || !password.trim()) {
