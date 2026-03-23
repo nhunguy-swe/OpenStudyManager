@@ -7,6 +7,7 @@ import LoadingSpinner from '../components/LoadingSpinner';
 import { GraduationCap } from 'lucide-react';
 // import { getFromStorage, setToStorage } from '../utils/storage';
 
+// Dữ liệu 1 mục trong thời khóa biểu
 interface TimetableItem {
   id: string;
   subject: string;
@@ -16,8 +17,11 @@ interface TimetableItem {
   color: string;
 }
 
+// Trang tổng quan Dashboard
 export default function Dashboard() {
+  // Key lưu subject đã chọn
   const SUBJECT_STORAGE_KEY = "selected_subject";
+  // Trạng thái loading
   const [isLoading, setIsLoading] = useState(true);
   const [subjects, setSubjects] = useState<Subject[]>([]);
   const [studyTime, setStudyTime] = useState<StudyTimeSession[]>([]);
@@ -42,6 +46,7 @@ export default function Dashboard() {
     console.log("Selected subject changed:", selectedSubject);
   }, [selectedSubject]);
 
+  // Load dữ liệu ban đầu
   useEffect(() => {
     async function loadData() {
       try {
@@ -69,7 +74,7 @@ export default function Dashboard() {
       const loadedTimetable: TimetableItem[] = JSON.parse(
         localStorage.getItem("timetable") || "[]"
       );
-
+      // Cập nhật state
         setSubjects(loadedSubjects || []);
         setStudyTime(loadedStudyTime || []);
         setStreak(loadedStreak);
@@ -84,18 +89,21 @@ export default function Dashboard() {
     loadData();
   }, []);
 
+  // Lưu studyTime khi thay đổi
   useEffect(() => {
     if (!isLoading) {
       localStorage.setItem('studyTime', JSON.stringify(studyTime));
     }
   }, [studyTime, isLoading]);
 
+  // Lưu streak khi thay đổi
   useEffect(() => {
     if (!isLoading) {
       localStorage.setItem('streak', JSON.stringify(streak));
     }
   }, [streak, isLoading]);
 
+  // Xử lý khi hoàn thành phiên học
   const handleStudySessionComplete = (minutes: number) => {
     if (minutes <= 0) {
       console.error('Invalid study session duration');
@@ -156,6 +164,7 @@ export default function Dashboard() {
     }
   };
 
+  // Hiển thị loading
   if (isLoading) {
     return <LoadingSpinner />;
   }

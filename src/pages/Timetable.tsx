@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Plus, Trash2, X } from "lucide-react";
 import { v4 as uuidv4 } from "uuid";
 
+// dữ liệu 1 mục trong timetable
 interface TimetableItem {
   id: string;        
   subject: string;   
@@ -40,6 +41,8 @@ export default function Timetable() {
     endTime: "09:00",
     color: COLORS[0],
   });
+
+  // Load / Save từ localStorage
   useEffect(() => {
     const saved = localStorage.getItem("timetable");
     if (saved) {
@@ -47,6 +50,7 @@ export default function Timetable() {
     }
   }, []);
 
+  // Lưu dữ liệu mỗi khi items thay đổi
   useEffect(() => {
     // mỗi lần items thay đổi thì lưu lại
     localStorage.setItem("timetable", JSON.stringify(items));
