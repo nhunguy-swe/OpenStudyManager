@@ -145,6 +145,14 @@ OpenStudyManager/
 - `SubjectManager.tsx`: Subject management interface
 - `TaskForm.tsx`: Task creation/editing form
 
+### Notes System (Customized)
+- `Notes.tsx`: Main notes page linked to subjects
+- `NoteCard.tsx`: Display note items in card UI
+- `NoteEditor.tsx`: Create and edit notes
+
+### Timetable (Customized)
+- `Timetable.tsx`: Weekly schedule with interactive editing
+
 ### Timer Components
 
 - `PomodoroTimer.tsx`: Pomodoro technique timer
